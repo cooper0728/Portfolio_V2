@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Portfolio_v2.Models;
 
 namespace Portfolio.Models.CodeFirst
 {

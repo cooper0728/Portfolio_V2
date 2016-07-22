@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
-using Portfolio_v2.Models.CodeFirst;
+using Portfolio.Models.CodeFirst;
 
 namespace Portfolio_v2.Models
 {
