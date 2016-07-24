@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Portfolio.Models;
 using Portfolio.Models.CodeFirst;
+using Portfolio_v2.Models;
 
-namespace Portfolio.Models.CodeFirst
+namespace Portfolio_v2.Controllers
 {
     public class PostsController : Controller
     {
