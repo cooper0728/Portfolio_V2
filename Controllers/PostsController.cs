@@ -1,9 +1,13 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
-using Portfolio.Models.CodeFirst;
 using Portfolio_v2.Models;
+using Portfolio_v2.Models.CodeFirst;
 
 namespace Portfolio_v2.Controllers
 {
@@ -43,7 +47,7 @@ namespace Portfolio_v2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Created,Updated,Title,Body,MediaUrl,Published")] Post post)
+        public ActionResult Create([Bind(Include = "Id,Created,Updated,Title,Slug,Body,MediaUrl,Published")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -75,7 +79,7 @@ namespace Portfolio_v2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Created,Updated,Title,Body,MediaUrl,Published")] Post post)
+        public ActionResult Edit([Bind(Include = "Id,Created,Updated,Title,Slug,Body,MediaUrl,Published")] Post post)
         {
             if (ModelState.IsValid)
             {

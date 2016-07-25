@@ -26,5 +26,19 @@ namespace Portfolio_v2.Controllers
 
             return View();
         }
+
+        public ActionResult SingleBlog()
+        {
+            ViewBag.Message = "Your Single blog page.";
+
+            return View();
+
+
+        }
+
+
+
+
+
     }
 }
