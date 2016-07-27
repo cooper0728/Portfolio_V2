@@ -37,6 +37,9 @@ namespace Portfolio_v2.Controllers
         }
 
         // GET: Posts/Create
+
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Create()
         {
             return View();
@@ -47,10 +50,29 @@ namespace Portfolio_v2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Created,Updated,Title,Slug,Body,MediaUrl,Published")] Post post)
+        public ActionResult Create([Bind(Include = "Id, Created, Updated, Title, Slug, Body, MediaUrl, Published")] Post post)
         {
             if (ModelState.IsValid)
             {
+                post.Created = DateTimeOffset.Now;
+            
+                var Slug = StringUtilities.URLFriendly(post.Title);
+                if (String.IsNullOrWhiteSpace(Slug))
+
+            {
+
+                ModelState.AddModelError("Title","Invalid title.");
+                return View(post);
+                }
+                if (db.Posts.Any(p => p.Slug == Slug))
+            {
+             
+                        ModelState.AddModelError("Title", "The title must be unique.");
+                return View(post);
+            }
+   
+            
+                post.Slug = Slug;
                 db.Posts.Add(post);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -60,6 +82,7 @@ namespace Portfolio_v2.Controllers
         }
 
         // GET: Posts/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -83,6 +106,7 @@ namespace Portfolio_v2.Controllers
         {
             if (ModelState.IsValid)
             {
+                post.Updated = DateTimeOffset.Now;
                 db.Entry(post).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -91,6 +115,7 @@ namespace Portfolio_v2.Controllers
         }
 
         // GET: Posts/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -123,6 +148,18 @@ namespace Portfolio_v2.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+
         }
+
+
+
+
+
+
+
+
+
+
+
     }
 }

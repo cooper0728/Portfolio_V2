@@ -1,4 +1,4 @@
-﻿@using System.Web.UI.WebControls
+﻿
 @model Portfolio_v2.Models.CodeFirst.Post
 
 @{
@@ -10,7 +10,7 @@
 <br />
 <br />
 
-<section id="blog-details">
+<section style ="background-color:#ffe401" id="blog-details">
     <div class="container-fluid">
         <div class="row blog-item">
             <div class="col-sm-2 text-center">
@@ -27,7 +27,7 @@
                 <span><a href="@Html.ActionLink("Index", "Comments")"><i class="fa fa-comment"></i></a></span>
             </div>
         </div>
-        <div class="entry-post">
+        <div style="color: #000"class="entry-post">
             @Model.Body
         </div>
         <div class="social-share">

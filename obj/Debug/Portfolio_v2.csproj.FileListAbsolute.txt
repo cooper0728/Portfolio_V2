@@ -13,8 +13,6 @@ C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\Portfolio_v2.dll.config
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\Portfolio_v2.dll
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\Portfolio_v2.pdb
-C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\obj\Debug\Portfolio_v2.dll
-C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\obj\Debug\Portfolio_v2.pdb
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\Antlr3.Runtime.dll
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\EntityFramework.dll
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\EntityFramework.SqlServer.dll
@@ -66,4 +64,9 @@ C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\obj\Debug\Portfolio_v2.csprojResolveAssemblyReference.cache
+C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\obj\Debug\Portfolio_v2.dll
+C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\obj\Debug\Portfolio_v2.pdb
+C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\PagedList.dll
+C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\PagedList.Mvc.dll
+C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\PagedList.xml
+C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\PagedList.Mvc.xml

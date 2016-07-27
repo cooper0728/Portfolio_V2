@@ -36,7 +36,7 @@
                 </div>
             </div>*@
             <div class="entry-content default-bg">
-                <a href="~/Posts/Details/@item.Id"><h2>@item.Title</h2></a>
+                <a href="@item.Id"><h2>@item.Title</h2></a>
                 <div class="black-text entry-meta">
                     @Html.ActionLink("Posted by Admin", "Edit", new {id = item.Id}, new {@class = " black-text fa fa-user"})
                 </div>

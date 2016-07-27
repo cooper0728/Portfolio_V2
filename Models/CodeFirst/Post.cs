@@ -20,6 +20,7 @@ namespace Portfolio_v2.Models.CodeFirst
         [Required]
         public string Title { get; set; }
         public string Slug { get; set; }
+
         [Required]
         [AllowHtml]
         public string Body { get; set; }
