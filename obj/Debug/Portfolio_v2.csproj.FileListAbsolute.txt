@@ -30,8 +30,11 @@ C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\Microsoft.Owin.Security.OAuth.dll
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\Microsoft.Owin.Security.Twitter.dll
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\Microsoft.Web.Mvc.dll
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\Newtonsoft.Json.dll
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\Owin.dll
+C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\PagedList.dll
+C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\PagedList.Mvc.dll
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\System.Web.Helpers.dll
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\System.Web.Mvc.dll
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\System.Web.Optimization.dll
@@ -41,6 +44,8 @@ C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\System.Web.WebPages.Razor.dll
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\WebGrease.dll
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\PagedList.xml
+C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\PagedList.Mvc.xml
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\System.Web.Helpers.xml
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\System.Web.Mvc.xml
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\System.Web.Optimization.xml
@@ -66,7 +71,4 @@ C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\obj\Debug\Portfolio_v2.dll
 C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\obj\Debug\Portfolio_v2.pdb
-C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\PagedList.dll
-C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\PagedList.Mvc.dll
-C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\PagedList.xml
-C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\bin\PagedList.Mvc.xml
+C:\Users\cooper0728\Documents\Visual Studio 2015\Projects\Portfolio_v2\Portfolio_v2\obj\Debug\Portfolio_v2.csprojResolveAssemblyReference.cache

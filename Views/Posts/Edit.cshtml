@@ -1,4 +1,4 @@
-﻿@model Portfolio_v2.Models.CodeFirst.Post
+﻿@model Portfolio_v2.Models.Post
 
 @{
     ViewBag.Title = "Edit";
@@ -6,7 +6,7 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Posts", FormMethod.Post, new { enctype = "Multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     

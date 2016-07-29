@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using Portfolio_v2.Models;
 
-namespace Portfolio_v2.Models.CodeFirst
+namespace Portfolio_v2.Models
 {
     public class Comment
     {

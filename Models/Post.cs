@@ -5,8 +5,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Portfolio_v2.Models;
 
-namespace Portfolio_v2.Models.CodeFirst
+namespace Portfolio_v2.Models
 {
     public class Post
     {
