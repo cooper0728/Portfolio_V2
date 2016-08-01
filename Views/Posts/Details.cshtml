@@ -1,4 +1,5 @@
 ﻿
+@using Portfolio_v2.Controllers
 @model Portfolio_v2.Models.Post
 
 @{
@@ -14,11 +15,11 @@
     <div class="container-fluid">
         <div class="row blog-item">
             <div class="col-sm-2 text-center">
-                 @if (Model.MediaUrl != null)
-                 {
-                     <img class="img-responsive" src="@Model.MediaUrl" alt="">
-                     <hr>
-                 }
+                @if (Model.MediaUrl != null)
+                {
+                    <img class="img-responsive" src="@Model.MediaUrl" alt="">
+                    <hr>
+                }
                 <i class="fa fa-clock-o"></i>
                 <p class="date"><span>@Model.Created.ToString("D")</span>
             </div>
@@ -30,7 +31,7 @@
             <div class="entry-meta">
                 @Html.ActionLink("Posted by Admin", "Edit", new { id = Model.Id }, new { @class = "fa fa-user" })
                 <a href="@Url.Action("Details",new {slug = Model.Slug})">@Model.Title</a>
-                <span><a href="@Html.ActionLink("Index", "Comments")"><i class="fa fa-comment"></i></a></span>
+                @*<span><a href="@Html.ActionLink("Index", "Comments")"><i class="fa fa-comment"></i></a></span>*@
             </div>
         </div>
         <div style="color: #000" class="entry-post">
@@ -40,7 +41,15 @@
             @Model.MediaUrl
         </div>
         <div class="comments-login">
-            @Html.ActionLink("Login Comments", "Login", "Account", null, new { @class = "btn btn-default" })
+            @using (Html.BeginForm("Create", "Comments", FormMethod.Post, new { enctype = "Multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" value="@Model.Id" name="PostId" class="form-control">
+                <input type="text" name="Body">
+                <input type="submit" value="Create" class="btn btn-default" />
+
+            }
+
         </div>
         <div class="post-comment">
             @foreach (var c in Model.Comments)
@@ -48,10 +57,14 @@
                 @c.Author.Email
                 @c.Created
                 @c.Body
+                @Html.ActionLink("Edit", "Edit", "Comments", new { id = Model.Id }, null)
+                @Html.ActionLink("Delete", "Delete", "Comments", new { id = Model.Id }, null)
             }
         </div>
     </div>
 </section>
+
+
 
 <footer id="footer">
     <div class="bottom default-bg text-center">

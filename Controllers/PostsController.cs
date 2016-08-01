@@ -12,27 +12,42 @@ using System.Web.Security;
 using PagedList;
 using PagedList.Mvc;
 
+
 namespace Portfolio_v2.Controllers
 {
     public class PostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        
-
-        // GET: Posts
-        public ActionResult Index(int? page)
-        {
-            int pageSize = 4;//display three blog posts at a time on this page
-            int pageNumber = (page ?? 1);
-
-            //Grab all Posts from the DB
-            var posts = from p in db.Posts
-                        select p;
-
-            //return View(db.Posts.OrderBy(i => i.Created).ToPagedList(pageNumber, pageSize));
-            return View(posts.OrderBy(i => i.Created).ToPagedList(pageNumber, pageSize));
-        }
        
+
+        //GET: Search
+        public ActionResult Index(string searchStr, int? page)
+        {
+            int pageSize = 4;
+            int pageNumber = (page ?? 1);
+            var posts = db.Posts;
+            var result = db.Posts.Where(p => p.Body.Contains(searchStr))
+                .Union(db.Posts.Where(p => p.Title.Contains(searchStr)))
+                .Union(db.Posts.Where(p => p.Comments.Any(c => c.Body.Contains(searchStr))))
+                .Union(db.Posts.Where(p => p.Comments.Any(c => c.Author.DisplayName.Contains(searchStr))))
+                .Union(db.Posts.Where(p => p.Comments.Any(c => c.Author.FirstName.Contains(searchStr))))
+                .Union(db.Posts.Where(p => p.Comments.Any(c => c.Author.LastName.Contains(searchStr))))
+                .Union(db.Posts.Where(p => p.Comments.Any(c => c.Author.UserName.Contains(searchStr))))
+                .Union(db.Posts.Where(p => p.Comments.Any(c => c.Author.Email.Contains(searchStr))));
+                //.Union(db.Posts.Where(p => p.Comments.Any(c => c.UpdateReason.Contains(searchStr))));
+
+            if (String.IsNullOrWhiteSpace(searchStr))
+            {
+
+                return View(posts.OrderBy(i => i.Created).ToPagedList(pageNumber, pageSize));
+            }
+            ;
+
+
+            return View(result.OrderBy(i => i.Created).ToPagedList(pageNumber, pageSize));
+
+        }
+
         // GET: Posts/Details/5
         public ActionResult Details(string Slug)
         {

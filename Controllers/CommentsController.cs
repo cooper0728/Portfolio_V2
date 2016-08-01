@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using Portfolio_v2.Models;
-using Portfolio_v2.Models.CodeFirst;
 
 namespace Portfolio_v2.Controllers
 {
@@ -37,34 +34,35 @@ namespace Portfolio_v2.Controllers
             return View(comment);
         }
 
-        // GET: Comments/Create
-        public ActionResult Create()
-        {
-            ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName");
-            ViewBag.PostId = new SelectList(db.Posts, "Id", "Title");
-            return View();
-        }
-
         // POST: Comments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,PostId,AuthorId,Body,Created,Updated")] Comment comment)
+        //[ValidateAntiForgeryToken]
+        [Authorize]
+        public ActionResult Create([Bind(Include = "Id,PostId,Body")] Comment comment)
         {
             if (ModelState.IsValid)
             {
+                comment.Created = DateTimeOffset.Now;
+                comment.AuthorId = User.Identity.GetUserId();
+
                 db.Comments.Add(comment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
+
             }
 
-            ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName", comment.AuthorId);
-            ViewBag.PostId = new SelectList(db.Posts, "Id", "Title", comment.PostId);
-            return View(comment);
+            //ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName", comment.AuthorId);
+            //ViewBag.PostId = new SelectList(db.Posts, "Id", "Title", comment.PostId);
+
+            return RedirectToAction("Index", "Posts");
+
+            //return RedirectToAction("Details", "Posts", new {id = comment.PostId});
         }
 
         // GET: Comments/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -76,7 +74,7 @@ namespace Portfolio_v2.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName", comment.AuthorId);
+            ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName", comment.AuthorId);
             ViewBag.PostId = new SelectList(db.Posts, "Id", "Title", comment.PostId);
             return View(comment);
         }
@@ -90,16 +88,18 @@ namespace Portfolio_v2.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(comment).State = EntityState.Modified;
+                db.Entry(comment).Property("Body").IsModified=true;
+                //db.Entry(comment).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName", comment.AuthorId);
+            ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName", comment.AuthorId);
             ViewBag.PostId = new SelectList(db.Posts, "Id", "Title", comment.PostId);
             return View(comment);
         }
 
         // GET: Comments/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
