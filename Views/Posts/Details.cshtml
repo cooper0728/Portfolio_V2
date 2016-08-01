@@ -41,15 +41,16 @@
             @Model.MediaUrl
         </div>
         <div class="comments-login">
-            @using (Html.BeginForm("Create", "Comments", FormMethod.Post, new { enctype = "Multipart/form-data" }))
-            {
-                @Html.AntiForgeryToken()
-                <input type="hidden" value="@Model.Id" name="PostId" class="form-control">
-                <input type="text" name="Body">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="col-md-6">
+                @using (Html.BeginForm("Create", "Comments", FormMethod.Post, new {enctype = "Multipart/form-data"}))
+                {
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" value="@Model.Id" name="PostId" class="form-control">
+                    <input type="text" name="Body">
+                    <input type="submit" value="Create" class="btn btn-default"/>
 
-            }
-
+                }
+            </div>
         </div>
         <div class="post-comment">
             @foreach (var c in Model.Comments)

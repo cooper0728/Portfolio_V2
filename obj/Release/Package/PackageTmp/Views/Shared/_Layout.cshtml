@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Charles Cooper Portfolio</title>
+    <link href="~/Content/PagedList.css" rel ="stylesheet" type="text/css"/>
     <link href="~/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/css/animate.css" rel="stylesheet">
     <link href="~/css/font-awesome.min.css" rel="stylesheet">
@@ -38,20 +39,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="@Url.Action("Index", "Home")">
-                        <h1>
-                            Charles Cooper
-                        </h1>
+                  
 
-                    </a>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="scroll"><a class="border" href="#">Home</a></li>
-                        <li class="scroll"><a class="border" href="/#portfolio">Portfolio</a></li>
-                        <li class="scroll"><a class="border" href="https://drive.google.com/open?id=0B0u9SUu-X8VBRm5yZkQwVTR2a0Q1bnVQMVZaUGFKR1VsVUFV">Resume</a></li>
-                        <li class="scroll"><a class="border" href="/#about-me">About Me</a></li>
-                        <li class="scroll"><a class="border" href="@Url.Action("Index","Posts")">Blog</a></li>
-                        <li class="scroll"><a class="border" href="/#footer">Contact</a></li>
+                    <ul class="nav navbar-nav navbar-fixed-top" style="height: 50px">
+                        <li class="scroll"><a class="navbar navbar-fixed-top" href="@Url.Action("Index", "Home")">Home</a></li>
+                        <li class="scroll"><a class="navbar navbar-fixed-top" href="/#portfolio">Portfolio</a></li>
+                        <li class="scroll"><a class="navbar navbar-fixed-top" href="https://drive.google.com/open?id=0B0u9SUu-X8VBRm5yZkQwVTR2a0Q1bnVQMVZaUGFKR1VsVUFV">Resume</a></li>
+                        <li class="scroll"><a class="navbar navbar-fixed-top" href="/#about-me">About Me</a></li>
+                        <li class="scroll"><a class="navbar navbar-fixed-top" href="@Url.Action("Index","Posts")">Blog</a></li>
+                        <li class="scroll"><a class="navbar navbar-fixed-top"href="/#footer">Contact</a></li>
                         <li>< @Html.Partial("_LoginPartial")</li>
                     </ul>
 
@@ -63,7 +59,6 @@
     @RenderBody()
     <!--/Scripts-->
     <script type="text/javascript" src="~/js/jquery.js"></script>
-    <script src="~/Scripts/tinymce/jquery.tinymce.min.js"></script>
     <script src="~/Scripts/SyntaxHighlighter/shCore.js"></script>
     <script src="~/Scripts/SyntaxHighlighter/shBrushJScript.js"></script>
     <script type="text/javascript" src="~/js/bootstrap.min.js"></script>
@@ -71,10 +66,11 @@
     <script type="text/javascript" src="~/js/gmaps.js"></script>
     <script type="text/javascript" src="~/js/canvas.js"></script>
     <script src="~/Scripts/tinymce/tinymce.min.js"></script>
-    <script>tinymce.int({ selector: ".textarea" });</script>
+    <script type="text/javascript">tinymce.init({ selector: "textarea" });</script>
     <script type="text/javascript" src="~/js/jquery.isotope.min.js"></script>
     <script type="text/javascript" src="~/js/wow.min.js"></script>
     <script type="text/javascript" src="~/js/main.js"></script>
+   
     <script type="text/javascript">SyntaxHighlighter.all();</script>
     @RenderSection("scripts", required: false)
 </body>

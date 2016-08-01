@@ -12,19 +12,19 @@
 <br />
 <br />
 <br />
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 <div class="container">
     <form>
         <div class="search-bar">
             @using (Html.BeginForm("Index", "Posts", FormMethod.Get, new { enctype = "Multipart/form-data" }))
             {
-                <input type="text" name="SearchStr" class="form-control"/>
+                <input type="text" name="SearchStr" class="form-control" />
                 <input type="submit" value="Search" class="search-button" />
 
             }
@@ -60,19 +60,24 @@
                     </a>
                     <div class="black-text entry-meta">
                         @Html.ActionLink("Posted by Admin", "Edit", new { id = item.Id }, new { @class = " black-text fa fa-user" })
+                        <div>
+                            <a href="@Url.Action("Details", new {slug = item.Slug})">@item.Title</a>
+                        </div>
+                        </div>
+                        <div>
+                            @Html.Raw(item.Body)
+                        </div>
+                        <div>
+                            @Html.ActionLink("Read More", "Details", new { slug = item.Slug }, new { @class = "btn btn-default" })
+
+
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-default" })
+                        </div>
                     </div>
-
-                    @Html.Raw(item.Body)
-                    @Html.ActionLink("Read More", "Details", new {slug = item.Slug}, new {@class = "btn btn-default"})
-
-                    <a href="@Url.Action("Details", new {slug = item.Slug})">@item.Title</a>
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-default" })
-
                 </div>
             </div>
+            }
         </div>
-    }
-</div>
 
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

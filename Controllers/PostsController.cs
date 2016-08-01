@@ -28,6 +28,7 @@ namespace Portfolio_v2.Controllers
             var posts = db.Posts;
             var result = db.Posts.Where(p => p.Body.Contains(searchStr))
                 .Union(db.Posts.Where(p => p.Title.Contains(searchStr)))
+                .Union(db.Posts.Where(p=>p.Slug.Contains(searchStr)))
                 .Union(db.Posts.Where(p => p.Comments.Any(c => c.Body.Contains(searchStr))))
                 .Union(db.Posts.Where(p => p.Comments.Any(c => c.Author.DisplayName.Contains(searchStr))))
                 .Union(db.Posts.Where(p => p.Comments.Any(c => c.Author.FirstName.Contains(searchStr))))

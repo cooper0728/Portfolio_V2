@@ -1,55 +1,83 @@
-﻿@model IEnumerable<Portfolio_v2.Models.CodeFirst.Post>
+﻿@model IPagedList<Portfolio_v2.Models.Post>
+@using PagedList;
+@using PagedList.Mvc;
+@using Portfolio_v2.Models
+
 
 @{
-    ViewBag.Title = "Index";
+            ViewBag.Title = "Index";
 }
 
 
-<br/>
-<br/>
-<br/>
-<br/>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 <div class="container">
     <form>
         <div class="search-bar">
-            @using (Html.BeginForm())
+            @using (Html.BeginForm("Index", "Posts", FormMethod.Get, new { enctype = "Multipart/form-data" }))
             {
-                @Html.TextBox("SearchText")
-                <input type="submit" value="Search" class="search-button"/>
+                <input type="text" name="SearchStr" class="form-control" />
+                <input type="submit" value="Search" class="search-button" />
 
             }
 
         </div>
     </form>
     <h2>Index</h2>
-<p>
-    @Html.ActionLink("Create New", "Create", null, new {@class="btn btn-default"})
-</p>
-@foreach (var item in Model)
-{
-    <div class="col-sm-12 col-md-12 col-lg-6">
-        <div class="single-blog wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="400ms">
-            @*<div class="blog-image">
-                <a href="single-blog.html"><img class="img-responsive" src="~/images/blog/post2.jpg" alt="" /></a>
-                <div class="post-date">
-                    <p>28<span>April</span></p>
-                </div>
-            </div>*@
-            <div class="entry-content default-bg">
-                <a href="~/Posts/Details/@item.Id"><h2>@item.Title</h2></a>
-                <div class="black-text entry-meta">
-                    @Html.ActionLink("Posted by Admin", "Edit", new {id = item.Id}, new {@class = " black-text fa fa-user"})
-                </div>
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default" })
+    </p>
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-12 col-md-12 col-lg-6">
+            <div class="single-blog wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="400ms">
 
-                @Html.Raw(item.Body)
-                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-default" })
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-default" })
 
+
+                @*<div class="blog-image">
+                        <a href="~/Views/Posts/Details.cshtml"> <img class="img-responsive" src="~/images/blog/post2.jpg" alt=""/></a>
+                        <div class="post-date">
+                            <p>28<span>April</span></p>
+                        </div>
+                    </div>*@
+                <div class="entry-content default-bg">
+                    @if (item.MediaUrl != null)
+                    {
+                        <img class="img-responsive" src="@item.MediaUrl" alt="">
+                        <hr>
+                    }
+
+                    <a href="@item.Id">
+                        <h2>@item.Title</h2>
+                    </a>
+                    <div class="black-text entry-meta">
+                        @Html.ActionLink("Posted by Admin", "Edit", new { id = item.Id }, new { @class = " black-text fa fa-user" })
+                        <div>
+                            <a href="@Url.Action("Details", new {slug = item.Slug})">@item.Title</a>
+                        </div>
+                        </div>
+                        <div>
+                            @Html.Raw(item.Body)
+                        </div>
+                        <div>
+                            @Html.ActionLink("Read More", "Details", new { slug = item.Slug }, new { @class = "btn btn-default" })
+
+
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-default" })
+                        </div>
+                    </div>
+                </div>
             </div>
+            }
         </div>
-    </div>
-    }
-</div>
-      
-              
-        
+
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
