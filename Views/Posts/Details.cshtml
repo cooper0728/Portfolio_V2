@@ -1,5 +1,6 @@
 ﻿
 @using Portfolio_v2.Controllers
+@using Portfolio_v2.Models
 @model Portfolio_v2.Models.Post
 
 @{
@@ -58,8 +59,9 @@
                 @c.Author.Email
                 @c.Created
                 @c.Body
-                @Html.ActionLink("Edit", "Edit", "Comments", new { id = Model.Id }, null)
-                @Html.ActionLink("Delete", "Delete", "Comments", new { id = Model.Id }, null)
+                @*@Html.ActionLink("Edit", "Edit", "Comments", new { id = Model.Id }, null)*@
+                @*@Html.ActionLink("Delete", "Delete", "Comments", new { id = Comment}, null)*@
+                @Html.ActionLink("Edit", "Edit", "Comments", new { id = c.Id }, null)
             }
         </div>
     </div>
