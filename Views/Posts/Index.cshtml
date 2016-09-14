@@ -21,7 +21,7 @@
 
 <div class="container">
     <form>
-        <div class="search-bar">
+        <div class="search-bar col-md-6">
             @using (Html.BeginForm("Index", "Posts", FormMethod.Get, new { enctype = "Multipart/form-data" }))
             {
                 <input type="text" name="SearchStr" class="form-control" />
@@ -55,29 +55,34 @@
                         <hr>
                     }
 
-                    <a href="@item.Id">
-                        <h2>@item.Title</h2>
-                    </a>
-                    <div class="black-text entry-meta">
-                        @Html.ActionLink("Posted by Admin", "Edit", new { id = item.Id }, new { @class = " black-text fa fa-user" })
-                        <div>
-                            <a href="@Url.Action("Details", new {slug = item.Slug})">@item.Title</a>
+                    @*<a href="@item.Id">
+                            <h2>@item.Title</h2>
+                        </a>*@
+
+
+                   <h2 style="color: black"> <a  style ="color:black" href="@Url.Action("Details", new {slug = item.Slug, @style ="color:black" }))">@item.Title</a></h2>
+                    <div>@item.Created</div>
+                    <div class="black-text entry-meta" style="color:black ">
+                        @Html.ActionLink("Posted by Admin", "Edit", new { id = item.Id }, new { @*@class = " black-text fa fa-user",*@ style ="color:black" })
+                        <div style="color:black">
+                            <a  style ="color: black" href="@Url.Action("Details", new {slug = item.Slug, @style ="color:black" }))">@item.Title</a>
                         </div>
-                        </div>
-                        <div>
-                            @Html.Raw(item.Body)
-                        </div>
-                        <div>
+                    </div>
+                    <div>
+                        @Html.Raw(item.Body)
+                    </div>
+                    <div>
+                        @if (User.IsInRole("Adimn"))
+                        {
                             @Html.ActionLink("Read More", "Details", new { slug = item.Slug }, new { @class = "btn btn-default" })
-
-
                             @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-default" })
-                        </div>
+                        }
                     </div>
                 </div>
             </div>
-            }
         </div>
+    }
+</div>
 
         Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
         @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

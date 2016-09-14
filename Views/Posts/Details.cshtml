@@ -11,18 +11,17 @@
 <br />
 <br />
 <br />
+@*<div class="row">
+    <img src="~/images/journey.jpg" />
+</div>*@
 
-<section style="background-color:#ffe401" id="blog-details">
+<section style="background-color:#ffe401;margin-right: 70px;border-left-width: 50px;padding-left: 0px;margin-left: 70px;" id="blog-details">
     <div class="container-fluid">
         <div class="row blog-item">
             <div class="col-sm-2 text-center">
-                @if (Model.MediaUrl != null)
-                {
-                    <img class="img-responsive" src="@Model.MediaUrl" alt="">
-                    <hr>
-                }
-                <i class="fa fa-clock-o"></i>
-                <p class="date"><span>@Model.Created.ToString("D")</span>
+                <p class="date">
+                    <span>@Model.Created</span>
+                </p>
             </div>
         </div>
 
@@ -30,42 +29,70 @@
 
             <h2>BLOG POST</h2>
             <div class="entry-meta">
-                @Html.ActionLink("Posted by Admin", "Edit", new { id = Model.Id }, new { @class = "fa fa-user" })
-                <a href="@Url.Action("Details",new {slug = Model.Slug})">@Model.Title</a>
-                @*<span><a href="@Html.ActionLink("Index", "Comments")"><i class="fa fa-comment"></i></a></span>*@
+                <a @*class="black-text fa fa-user"*@ href="/Posts/Edit/17" style="color:black">Posted by Admin</a>
+                <a style="color:black" href="/Blog/working-blog">Working Blog</a>
+
             </div>
         </div>
         <div style="color: #000" class="entry-post">
-            @Model.Body
+            <p>I am doing a final run thru to check to see if my blog is working before the big interview day.</p>
         </div>
         <div class="social-share">
-            @Model.MediaUrl
+
         </div>
         <div class="comments-login">
             <div class="col-md-6">
-                @using (Html.BeginForm("Create", "Comments", FormMethod.Post, new {enctype = "Multipart/form-data"}))
-                {
-                    @Html.AntiForgeryToken()
-                    <input type="hidden" value="@Model.Id" name="PostId" class="form-control">
+                <form action="/Comments/Create" enctype="Multipart/form-data" method="post">
+                    <input name="__RequestVerificationToken" type="hidden" value="5d4C8RVkO2h-N8Ljva9bQa6fvdH326_xgjkfbm1dnGjZaUCBbe0U4jI0POVXpFohAThp13AS4NTak3bgDewWQQZc0IYhWEN0rAoJ5_dCXDQppOSzlYfuj7vGUFgXcqV61zDoy0qQDim4wB6ndj0LJg2">                    <input type="hidden" value="17" name="PostId" class="form-control">
                     <input type="text" name="Body">
-                    <input type="submit" value="Create" class="btn btn-default"/>
-
-                }
+                    <input type="submit" value="Create" class="btn btn-default">
+                </form>
             </div>
         </div>
         <div class="post-comment">
-            @foreach (var c in Model.Comments)
-            {
-                @c.Author.Email
-                @c.Created
-                @c.Body
-                @*@Html.ActionLink("Edit", "Edit", "Comments", new { id = Model.Id }, null)*@
-                @*@Html.ActionLink("Delete", "Delete", "Comments", new { id = Comment}, null)*@
-                @Html.ActionLink("Edit", "Edit", "Comments", new { id = c.Id }, null)
-            }
+
         </div>
     </div>
-</section>
+    <div class="row " style="margin-left: 10px;">
+        <div class="post-comment">
+            @foreach (var c in Model.Comments)
+            {
+                <dl class="dl-horizontal">
+                    <dt>
+                        Comment
+                    </dt>
+                    <dd>
+                        @c.Body
+                    </dd>
+
+                    <dt>
+                        Comment Date
+                    </dt>
+                    <dd>
+                        @c.Created.ToString("d")
+                    </dd>
+
+                    <dt>
+                        Author
+                    </dt>
+                    <dd>
+                        @c.Author.Email
+                    </dd>
+                </dl>
+
+
+                    @Html.ActionLink("Delete", "Delete", "Comments", new { id = c.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Edit", "Edit", "Comments", new { id = c.Id }, new { @class = "btn btn-default" })
+            }
+
+        </div>
+    </div>
+
+
+
+
+
+
 
 
 
@@ -76,6 +103,7 @@
         </div>
     </div>
 </footer>
+</section>
 <script src="~/js/jquery.js"></script>
 <script src="~/js/bootstrap.min.js"></script>
 
@@ -85,3 +113,8 @@
         @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
         @Html.ActionLink("Back to List", "Index")
     </p>
+
+
+
+
+

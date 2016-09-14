@@ -166,7 +166,7 @@ namespace Portfolio_v2.Controllers
                 db.Entry(post).State = EntityState.Modified;
                 
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details");
             }
             return View(post);
         }

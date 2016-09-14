@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="~/images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
-<body>
+<body style="">
     <!-- Page Loader -->
     <div class="preloader">
         <div id="loaderImage"></div>
@@ -44,11 +44,8 @@
                     <ul class="nav navbar-nav navbar-fixed-top" style="height: 50px">
                         <li class="scroll"><a class="navbar navbar-fixed-top" href="@Url.Action("Index", "Home")">Home</a></li>
                         <li class="scroll"><a class="navbar navbar-fixed-top" href="/#portfolio">Portfolio</a></li>
-                        <li class="scroll"><a class="navbar navbar-fixed-top" href="https://drive.google.com/open?id=0B0u9SUu-X8VBRm5yZkQwVTR2a0Q1bnVQMVZaUGFKR1VsVUFV">Resume</a></li>
-                        <li class="scroll"><a class="navbar navbar-fixed-top" href="/#about-me">About Me</a></li>
                         <li class="scroll"><a class="navbar navbar-fixed-top" href="@Url.Action("Index","Posts")">Blog</a></li>
-                        <li class="scroll"><a class="navbar navbar-fixed-top"href="/#footer">Contact</a></li>
-                        <li>< @Html.Partial("_LoginPartial")</li>
+                        <li>@Html.Partial("_LoginPartial")</li>
                     </ul>
 
                 </div>
