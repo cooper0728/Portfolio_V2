@@ -3,3 +3,24 @@
     height: 300px;
 
 }
+.journey{
+    height: 300px;
+    border-left-width: 50px;
+    margin-left: 260px;
+}
+
+#create{
+    margin-left: 200px;
+}
+
+#Comments{
+     cols:"92"; 
+     rows:"15" 
+
+}
+.blog{
+    height: 200px;
+    margin-left: 400px;
+    width: 500px;
+}
+

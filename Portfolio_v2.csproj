@@ -249,6 +249,7 @@
     <Content Include="images\about-us\member3.jpg" />
     <Content Include="images\arrow-left.png" />
     <Content Include="images\arrow-right.png" />
+    <Content Include="images\blog.jpg" />
     <Content Include="images\blog\author.jpg" />
     <Content Include="images\blog\man1.jpg" />
     <Content Include="images\blog\man2.jpg" />
@@ -352,7 +353,9 @@
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
     <Content Include="private.config" />
-    <None Include="Properties\PublishProfiles\ccooper-portfolio2.pubxml" />
+    <None Include="Properties\PublishProfiles\ccooper-portfolio2.pubxml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -606,6 +609,7 @@
     <Content Include="Scripts\tinymce\tinymce.js" />
     <Content Include="Scripts\tinymce\tinymce.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="single-blog.html" />
     <Content Include="Uploads\marley.jpg" />
     <Content Include="Uploads\smoke.jpg" />
     <Content Include="Web.config">
